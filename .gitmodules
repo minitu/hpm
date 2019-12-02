@@ -7,3 +7,9 @@
 [submodule "sst-dumpi"]
 	path = sst-dumpi
 	url = git@github.com:minitu/sst-dumpi.git
+[submodule "dumpi-cortex"]
+	path = dumpi-cortex
+	url = git@github.com:minitu/dumpi-cortex.git
+[submodule "ROSS"]
+	path = ROSS
+	url = git@github.com:ROSS-org/ROSS.git
