@@ -8,7 +8,7 @@
 	path = sst-dumpi
 	url = git@github.com:minitu/sst-dumpi.git
 [submodule "dumpi-cortex"]
-	path = dumpi-cortex
+	path = cortex
 	url = git@github.com:minitu/dumpi-cortex.git
 [submodule "ROSS"]
 	path = ROSS
