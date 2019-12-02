@@ -104,3 +104,14 @@ $ make && make install
 
 ### gpuroofperf-toolkit
 
+To obtain GPU hardware parameters, you need to build the microbenchmark:
+
+```
+$ cd $HPM_PATH/gpuroofperf-toolkit
+$ cd bench
+$ mkdir build
+$ cd build
+$ cmake ../
+```
+
+## Build Performance Model
