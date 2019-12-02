@@ -1,0 +1,6 @@
+[submodule "codes"]
+	path = codes
+	url = git@github.com:minitu/codes.git
+[submodule "gpuroofperf-toolkit"]
+	path = gpuroofperf-toolkit
+	url = git@github.com:minitu/gpuroofperf-toolkit.git
