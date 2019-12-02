@@ -4,3 +4,6 @@
 [submodule "gpuroofperf-toolkit"]
 	path = gpuroofperf-toolkit
 	url = git@github.com:minitu/gpuroofperf-toolkit.git
+[submodule "sst-dumpi"]
+	path = sst-dumpi
+	url = git@github.com:minitu/sst-dumpi.git

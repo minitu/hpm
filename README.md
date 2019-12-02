@@ -10,4 +10,5 @@ application.
 It builds on [CODES](https://github.com/minitu/codes) to simulate MPI
 communication traces and
 [gpuroofperf-toolkit](https://github.com/minitu/gpuroofperf-toolkit) to predict
-GPU kernel performance.
+GPU kernel performance. It also uses
+[DUMPI](https://github.com/minitu/sst-dumpi) to generate MPI traces.
