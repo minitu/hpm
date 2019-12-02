@@ -35,25 +35,31 @@ $ git submodule update
 
 to initialize and update the submodules separately.
 
-### CODES
+IBM XL C/C++ 16.1.1 was used to compile DUMPI and Cortex, GCC 4.9.3 for ROSS
+and CODES (CODES fails at link time with IBM XL compilers), and CMake 3.14.5.
+
+**Before proceeding, set the environment variable** `HPM_PATH` **to point to
+the directory where the HPM repository is located.**
+
+### 1. CODES
 
 DUMPI, Cortex, and ROSS should be installed before building CODES.
 
-#### DUMPI
+#### 1-1. DUMPI
 
 The MPI-Replay module in CODES reads DUMPI traces to simulate MPI communication.
 To build DUMPI:
 
 ```
-$ cd sst-dumpi
+$ cd $HPM_PATH/sst-dumpi
 $ ./bootstrap.sh
 $ mkdir build install
 $ cd build
-$ ../configure --enable-libdumpi --enable-libundumpi CC=mpicc CXX=mpicxx --prefix=[PATH_TO_HPM]/sst-dumpi/install
+$ ../configure --enable-libdumpi --enable-libundumpi CC=mpicc CXX=mpicxx --prefix=$HPM_PATH/sst-dumpi/install
 $ make && make install
 ```
 
-#### Cortex
+#### 1-2. Cortex
 
 Cortex is a library that translates collective MPI communication calls in DUMPI
 traces to their equivalent point-to-point calls, in particular as implemented
@@ -61,10 +67,40 @@ in MPICH.
 Cortex can be built with the following commands (without optional Python support):
 
 ```
-$
+$ cd $HPM_PATH/cortex
+$ mkdir build install
+$ cd build
+$ CC=mpicc CXX=mpicxx cmake .. -G "Unix Makefiles" -DMPICH_FORWARD:BOOL=TRUE -DCMAKE_INSTALL_PREFIX=$HPM_PATH/cortex/install -DDUMPI_ROOT=$HPM_PATH/sst-dumpi/install
+$ make && make install
 ```
 
-#### ROSS
+#### 1-3. ROSS
+
+ROSS serves as the simulation engine to process events created by CODES in
+parallel. It can be installed as follows:
+
+```
+$ cd $HPM_PATH/ROSS
+$ mkdir build install
+$ cd build
+$ CC=mpicc CXX=mpicxx cmake .. -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=$HPM_PATH/ROSS/install
+$ make && make install
+```
+
+**Note:** With GCC on IBM Power systems, CMakeLists.txt may need to be modified to use GCC flags with ppc64le.
+
+---
+
+With DUMPI, Cortex, and ROSS installed, you are now ready to build CODES.
+
+```
+$ cd $HPM_PATH/codes
+$ ./prepare.sh
+$ mkbid build install
+$ cd build
+$ ../configure --prefix=$HPM_PATH/codes/install CC=mpicc CXX=mpicxx PKG_CONFIG_PATH=$HPM_PATH/ROSS/install/lib/pkgconfig --with-dumpi=$HPM_PATH/sst-dumpi/install --with-cortex=$HPM_PATH/cortex/install
+$ make && make install
+```
 
 ### gpuroofperf-toolkit
 
