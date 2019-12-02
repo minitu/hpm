@@ -12,3 +12,36 @@ communication traces and
 [gpuroofperf-toolkit](https://github.com/minitu/gpuroofperf-toolkit) to predict
 GPU kernel performance. It also uses
 [DUMPI](https://github.com/minitu/sst-dumpi) to generate MPI traces.
+
+## Install
+
+When cloning this repository, you should make sure to obtain all the submodules
+as well. In other words, use
+
+```
+$ git clone --recurse-submodules https://github.com/minitu/hpm
+```
+
+for cloning. If you forgot to use the `--recurse-submodules` flag, you can run
+
+```
+$ git submodule init
+$ git submodule update
+```
+
+to initialize and update the submodules separately.
+
+### CODES
+
+### gpuroofperf-toolkit
+
+### DUMPI
+
+```
+$ cd sst-dumpi
+$ ./bootstrap.sh
+$ mkdir build install
+$ cd build
+$ ../configure --enable-libdumpi --enable-libundumpi CC=mpicc CXX=mpicxx --prefix=[PATH_TO_HPM]/sst-dumpi/install
+$ make && make install
+```
