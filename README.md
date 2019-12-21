@@ -128,3 +128,14 @@ $ ./gpuroofperf-bench [GPU #] -o gpu_parameter.csv
 ```
 
 GPU # is only required when you have multiple GPUs available, otherwise use 1.
+
+**2. Link target application with DUMPI**
+
+To enable MPI trace generation with DUMPI, the target application must be linked
+with DUMPI. To do this, simply add `-L$HPM_PATH/sst-dumpi/install/lib -ldumpi`
+as linker options.
+
+If you want to profile and generate traces for only a certain part of the
+application, include the DUMPI header file in your application as
+`#include <dumpi/libdumpi/libdumpi.h>` and use `libdumpi_disable_profiling()`
+and `libdumpi_enable_profiling()` to disable and enable profiling, respectively.
