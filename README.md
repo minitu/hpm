@@ -15,7 +15,7 @@ calls to point-to-point calls in DUMPI traces, and
 [ROSS](https://github.com/ROSS-org/ROSS) as the parallel discrete event
 simulation engine.
 
-## Install
+## Installation
 
 When cloning this repository, you should make sure to obtain all the submodules
 as well. In other words, use
@@ -110,6 +110,21 @@ $ cd bench
 $ mkdir build
 $ cd build
 $ cmake ../
+$ make
 ```
 
-## Build Performance Model
+## Building a Performance Model
+
+**1. Obtain GPU hardware parameters**
+
+GPU hardware parameters should be obtained on all machines/GPUs where you want
+to predict the performance of your GPU kernels. This means the process of
+executing the microbenchmark as below should be repeated for the different GPU
+hardware.
+
+```
+$ cd $HPM_PATH/gpuroofperf-toolkit/bench/build
+$ ./gpuroofperf-bench [GPU #] -o gpu_parameter.csv
+```
+
+GPU # is only required when you have multiple GPUs available, otherwise use 1.
