@@ -1,11 +1,9 @@
-# HPM: Heterogeneous Performance Modeling
-
 HPM is a performance modeling framework targeted at applications that utilize
 GPUs to accelerate computation and MPI for distributed memory communication.
-Building on existing projects, it aims to achieve both high prediction accuracy
-and ease of use for creating performance models for any distributed GPU
-application; the user should not have to inspect the code or be knowledgeable
-about the internals of the target application.
+With improvements to and integration of existing projects, it aims to achieve
+both high prediction accuracy and ease of use for creating performance models
+for any distributed GPU application; the user should not have to inspect the
+code or be knowledgeable about the internals of the target application.
 
 It builds on [CODES](https://github.com/minitu/codes) to simulate MPI
 communication traces and
