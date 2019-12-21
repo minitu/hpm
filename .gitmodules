@@ -13,3 +13,6 @@
 [submodule "ROSS"]
 	path = ROSS
 	url = git@github.com:ROSS-org/ROSS.git
+[submodule "apps/miniFE"]
+	path = apps/miniFE
+	url = git@github.com:minitu/miniFE.git
