@@ -139,3 +139,26 @@ If you want to profile and generate traces for only a certain part of the
 application, include the DUMPI header file in your application as
 `#include <dumpi/libdumpi/libdumpi.h>` and use `libdumpi_disable_profiling()`
 and `libdumpi_enable_profiling()` to disable and enable profiling, respectively.
+
+**3. Profile application and generate DUMPI traces**
+
+Now that the application is linked with DUMPI, we profile it with
+`gpuroofperf-toolkit` to obtain the kernel parameters and generate DUMPI traces
+at the same time. Note that path to DUMPI should be added to `LD_LIBRARY_PATH`
+when profiling.
+
+`gpuroofperf-toolkit` uses NVIDIA's profiler tool (`nvprof`) under the hood
+to obtain GPU performance metrics. If you want to limit the GPU profiling to a
+certain part of the application, add `#include <cuda_profiler_api.h>` as well as
+`cudaProfilerStart()` and `cudaProfilerStop()` calls to start and stop
+profiling, respectively.
+
+```
+$ cd
+$ export LD_LIBRARY_PATH=$HPM_PATH/sst-dumpi/install/lib:$LD_LIBRARY_PATH
+$ python3 gpuroofperf-cli.py -o kernel_parameter.csv -x "[launcher command, e.g. jsrun]" [application]
+```
+
+Once the profiling completes, DUMPI trace files and a kernel parameter file
+will be available in the folder. You can use `dumpi2ascii` for a human-readable
+version of the DUMPI traces.
