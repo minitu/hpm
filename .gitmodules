@@ -19,3 +19,6 @@
 [submodule "mpitest"]
 	path = mpitest
 	url = git@github.com:minitu/mpitest.git
+[submodule "apps/jacobi2d"]
+	path = apps/jacobi2d
+	url = git@github.com:minitu/jacobi2d.git
