@@ -30,3 +30,7 @@
 	path = apps/jacobi2d
 	url = git@github.com:minitu/jacobi2d.git
 	branch = master
+[submodule "apps/miniMD"]
+	path = apps/miniMD
+	url = git@github.com:minitu/miniMD.git
+	branch = master
