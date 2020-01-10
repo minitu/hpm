@@ -1,24 +1,32 @@
 [submodule "codes"]
 	path = codes
 	url = git@github.com:minitu/codes.git
+	branch = master
 [submodule "gpuroofperf-toolkit"]
 	path = gpuroofperf-toolkit
 	url = git@github.com:minitu/gpuroofperf-toolkit.git
+	branch = master
 [submodule "sst-dumpi"]
 	path = sst-dumpi
 	url = git@github.com:minitu/sst-dumpi.git
+	branch = master
 [submodule "dumpi-cortex"]
 	path = cortex
 	url = git@github.com:minitu/dumpi-cortex.git
+	branch = master
 [submodule "ROSS"]
 	path = ROSS
 	url = git@github.com:ROSS-org/ROSS.git
+	branch = master
 [submodule "apps/miniFE"]
 	path = apps/miniFE
 	url = git@github.com:minitu/miniFE.git
+	branch = master
 [submodule "mpitest"]
 	path = mpitest
 	url = git@github.com:minitu/mpitest.git
+	branch = master
 [submodule "apps/jacobi2d"]
 	path = apps/jacobi2d
 	url = git@github.com:minitu/jacobi2d.git
+	branch = master
