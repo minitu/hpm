@@ -34,3 +34,7 @@
 	path = apps/miniMD
 	url = git@github.com:minitu/miniMD.git
 	branch = master
+[submodule "apps/sw4lite"]
+	path = apps/sw4lite
+	url = git@github.com:minitu/sw4lite.git
+	branch = master
